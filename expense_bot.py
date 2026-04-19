@@ -121,7 +121,7 @@ def ask_claude(user_message, rows):
     today = date.today()
     months = ["January","February","March","April","May","June",
               "July","August","September","October","November","December"]
-    today_str = f"{str(today.day).zfill(2)}/{str(today.month).zfill(2)}"
+    today_str = f"{str(today.month).zfill(2)}/{str(today.day).zfill(2)}"
     today_month = months[today.month - 1]
 
     recent_rows = [r for r in rows if len(r) >= 3 and r[0] and r[1] and r[2]][-20:]
