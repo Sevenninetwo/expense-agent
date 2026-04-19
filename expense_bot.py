@@ -20,10 +20,13 @@ SHEET_ID          = os.environ["SHEET_ID"]
 SHEET_TAB         = os.environ.get("SHEET_TAB", "2026 Expenses")
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
-# Load service account credentials from a separate JSON file (not committed to git)
-SERVICE_ACCOUNT_FILE = os.environ.get("GOOGLE_SERVICE_ACCOUNT_FILE", "service_account.json")
-with open(SERVICE_ACCOUNT_FILE, "r") as f:
-    SERVICE_ACCOUNT_INFO = json.load(f)
+# Load service account from environment variable (Railway) or file (local)
+if os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON"):
+    SERVICE_ACCOUNT_INFO = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"])
+else:
+    SERVICE_ACCOUNT_FILE = os.environ.get("GOOGLE_SERVICE_ACCOUNT_FILE", "service_account.json")
+    with open(SERVICE_ACCOUNT_FILE, "r") as f:
+        SERVICE_ACCOUNT_INFO = json.load(f)
 
 CATEGORIES = ["Personal Joy", "Grocery", "Puppy Needs", "Health", "Travel", "Others", "Medical", "Housing", "Transport", "Claude"]
 
