@@ -1,4 +1,4 @@
-# Personal AI Expense Agent
+# AI Expense Agent 
 
 A personal AI agent built from scratch — no engineering background — that automates daily expense tracking through natural language over Telegram, powered by Claude, and connected to Google Sheets.
 
