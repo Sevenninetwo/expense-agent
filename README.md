@@ -6,7 +6,7 @@ A personal AI agent built from scratch — no engineering background — that au
 
 ## The Problem
 
-I am looking to track every expense carefully in preparation of some big financial decisions that I plan to make in 2026. I wanted something simple, reliable, and accessible, and decided to solve this problem on my own. I can track it manually but the friction is real: open laptop, navigate to the sheet, find the right tab, enter five fields, close. Do that 3–5 times a day and it becomes a chore you start skipping. Also why waste my time on something that is recurring and can be more fully automated with an AI agent? 
+I was looking to track every expense carefully in preparation of some big financial decisions that I plan to make in 2026. I wanted something simple, reliable, and accessible, and decided to solve this problem on my own. I can track it manually but the friction is real: open laptop, navigate to the sheet, find the right tab, enter five fields, close. Do that 3–5 times a day and it becomes a chore you start skipping. Also why waste my time on something that is recurring and can be more fully automated with an AI agent? 
 
 The question I asked: *can I reduce this to a single message on my phone?* 
 
@@ -65,7 +65,7 @@ Service Account (auth)
 
 ## Constraints I Faced
 
-These are the real ones — not sanitised for a portfolio.
+These are the real, actual ones — not sanitised for a portfolio. Save yourself some time (and headache) by avoiding these mistakes. 
 
 **1. CORS blocked direct browser-to-Sheets writes**
 The first version was an HTML file that called the Sheets API directly. Read worked. Write failed with a CORS error. Moved to a Python backend to proxy the calls.
@@ -92,7 +92,7 @@ Getting the bot running was straightforward. Keeping it running permanently — 
 
 ## Making It 24/7: The Decisions
 
-From the start, the goal wasn't just to build something that works — it was to build something that works *all the time*, without babysitting it.
+From the start, the goal wasn't just to build something that works —- it was to build something that works *all the time*, without babysitting it.
 
 A bot you have to manually restart every morning isn't a tool. It's a chore.
 
@@ -120,10 +120,10 @@ For a production deployment serving multiple users, the right answer is a cloud 
 ## Learnings
 
 **1. Start with the interface, not the backend**
-I wasted time on the backend before confirming the interface was right. Telegram turned out to be a better choice than a web UI — it's already installed, it handles notifications natively, and I don't need to maintain it.
+I wasted some time on the backend before confirming the interface was right. It was an experiment and Telegram turned out to be a better choice than a web UI — it's already installed, it handles notifications natively, and I don't need to maintain it.
 
 **2. LLMs handle ambiguity better than regex**
-The first attempt used regex to parse messages like "add $12 for lunch." Edge cases broke it constantly — no dollar sign, different date formats, typos. Routing through Claude and asking it to return structured JSON handled all of this cleanly with a fraction of the code.
+The first attempt used regex to parse messages like "add $12 for lunch." Edge cases broke it constantly — no dollar sign, different date formats, typos. Super frustrating. Routing through Claude and asking it to return structured JSON handled all of this cleanly with a fraction of the code. *chef's kiss*
 
 **3. The Sheets API is finicky about ranges**
 Documentation makes it look simple. In practice: tab names with spaces, columns with mixed data, and the difference between `append` and `update` all create subtle bugs that only surface at runtime.
@@ -135,13 +135,13 @@ API keys were shared in a chat session during development. The right pattern: st
 The choice of *where* and *how* to run the bot is as important as the bot itself. Running locally keeps costs at zero and setup simple, but introduces single-machine dependency. The decision to use a Login Item over a cloud server was a deliberate tradeoff — right for a personal tool, wrong for a product. Knowing the difference matters.
 
 **6. Non-engineers can ship working AI agents**
-This was built without a software engineering background. The real skill wasn't coding — it was knowing what to build, how to frame the problem, and how to debug systematically when things broke.
+This was built without a software engineering background. The real skill wasn't coding —- it was knowing what to build, how to frame the problem, and how to debug systematically when things broke. 
 
 ---
 
 ## What This Could Become
 
-This is a personal tool solving a personal problem. But the pattern is reusable.
+This is a personal tool solving a personal problem. The pattern is reusable.
 
 **For individuals:** The same architecture works for any Google Sheet workflow — workout logs, habit tracking, time tracking, inventory. Swap the sheet and the categories, the bot works the same way.
 
