@@ -2,15 +2,13 @@
 
 A personal AI agent built from scratch — no engineering background — that automates daily expense tracking through natural language over Telegram, powered by Claude, and connected to Google Sheets.
 
-Built in a single afternoon. Fully operational.
-
 ---
 
 ## The Problem
 
-I track every expense manually in a Google Sheet. It works, but the friction is real: open laptop, navigate to the sheet, find the right tab, enter five fields, close. Do that 3–5 times a day and it becomes a chore you start skipping.
+I am looking to track every expense carefully in preparation of some big financial decisions that I plan to make in 2026. I wanted something simple, reliable, and accessible, and decided to solve this problem on my own. I can track it manually but the friction is real: open laptop, navigate to the sheet, find the right tab, enter five fields, close. Do that 3–5 times a day and it becomes a chore you start skipping. Also why waste my time on something that is recurring and can be more fully automated with an AI agent? 
 
-The question I asked: *can I reduce this to a single message on my phone?*
+The question I asked: *can I reduce this to a single message on my phone?* 
 
 ---
 
